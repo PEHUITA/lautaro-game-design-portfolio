@@ -1,0 +1,5 @@
+/*
+  Cache-Control: no-cache, must-revalidate
+
+/*.webp
+  Cache-Control: public, max-age=2592000

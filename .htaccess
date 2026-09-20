@@ -1,0 +1,13 @@
+# Static-site cache policy for Apache/Hostinger
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 hours"
+  ExpiresByType application/javascript "access plus 1 hours"
+  ExpiresByType image/webp "access plus 1 month"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
