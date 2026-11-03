@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keep It Alive (KIA) — Case Study · Lautaro Montoya</title>
+  <meta name="description" content="Keep It Alive: a pixel-art roguelite card game about how much you would sacrifice to keep someone alive. Design case study by Lautaro Montoya: fatigue system, bosses that attack your hand, balance by simulation.">
+  <meta name="theme-color" content="#0b1018">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Keep It Alive — How much are you willing to sacrifice to keep them alive?">
+  <meta property="og:description" content="A roguelite card game where illnesses attack your hand. Design case study by Lautaro Montoya.">
+  <meta property="og:image" content="assets/img/og-kia.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b1018'/%3E%3Cpath d='M3 17h7l3-8 4 15 3-7h9' fill='none' stroke='%234fd18b' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261103">
+  <script defer src="main.js?v=20261103"></script>
+</head>
+<body class="page-kia">
+  <a class="skip-link" href="#main"><span data-lang="en">Skip to content</span><span data-lang="es">Saltar al contenido</span></a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Lautaro Montoya — home">LM<span>—</span>GD</a>
+    <nav aria-label="Case study sections">
+      <a href="index.html#work"><span data-lang="en">← WORK</span><span data-lang="es">← PROYECTOS</span></a>
+      <a class="nav-extra" href="#systems"><span data-lang="en">SYSTEMS</span><span data-lang="es">SISTEMAS</span></a>
+      <a href="#bosses"><span data-lang="en">BOSSES</span><span data-lang="es">JEFES</span></a>
+      <a class="nav-extra" href="#balance">BALANCE</a>
+    </nav>
+    <button class="lang-toggle" type="button" aria-label="Cambiar a español / Switch to English"><span>EN</span><b>/</b><span>ES</span></button>
+  </header>
+
+  <main id="main">
+    <!-- ============================================================ portada -->
+    <section class="kia-hero">
+      <div class="kia-hero-bg"><img src="assets/img/kia/exterior.webp" alt="" width="1240" height="1080" fetchpriority="high"></div>
+      <div class="kia-hero-inner">
+        <p class="kia-kicker">CASE STUDY · 2026 · <span data-lang="en">IN DEVELOPMENT</span><span data-lang="es">EN DESARROLLO</span></p>
+        <h1>KEEP IT <em>ALIVE</em></h1>
+        <p class="kia-question"><span data-lang="en">How much are you willing to sacrifice to keep them alive?</span><span data-lang="es">¿Cuánto estás dispuesto a sacrificar para mantenerlo vivo?</span></p>
+        <dl class="kia-meta">
+          <div><dt><span data-lang="en">ROLE</span><span data-lang="es">ROL</span></dt><dd>Game Designer / Unity Developer</dd></div>
+          <div><dt><span data-lang="en">GENRE</span><span data-lang="es">GÉNERO</span></dt><dd><span data-lang="en">Roguelite deckbuilder</span><span data-lang="es">Roguelite de cartas</span></dd></div>
+          <div><dt><span data-lang="en">ENGINE</span><span data-lang="es">MOTOR</span></dt><dd>Unity 6 · C#</dd></div>
+          <div><dt><span data-lang="en">STATUS</span><span data-lang="es">ESTADO</span></dt><dd><span data-lang="en">Playable build, in development</span><span data-lang="es">Build jugable, en desarrollo</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================================================ premisa -->
+    <section class="kia-section">
+      <div class="kia-wrap kia-two">
+        <div>
+          <p class="eyebrow"><span data-lang="en">THE PREMISE</span><span data-lang="es">LA PREMISA</span></p>
+          <p class="kia-lead" style="margin-top:1rem">
+            <span data-lang="en">Someone you love is in a hospital bed. You are not a doctor and you are not a hero: you are the one who stays. <strong>Every night, illnesses come into the room as monsters</strong>, and the only thing between them and the bed is you, your exhaustion and a hand of cards.</span>
+            <span data-lang="es">Alguien que querés está en una cama de hospital. No sos médico ni héroe: sos quien se queda. <strong>Cada noche las enfermedades entran al cuarto como monstruos</strong>, y lo único entre ellas y la cama sos vos, tu cansancio y una mano de cartas.</span>
+          </p>
+          <p class="kia-text" style="margin-top:1.4rem">
+            <span data-lang="en">The person you protect is called the <strong>Protegido</strong> (“the protected one”), and it can be a person, a dog or a cat: you name them at the start of the run. The theme is the bond, not the illness. That is why the core rule is simple and cruel: <strong>almost no good card is free</strong>. Caring for them costs you.</span>
+            <span data-lang="es">A quien protegés se lo llama <strong>Protegido</strong>, y puede ser una persona, un perro o un gato: le ponés nombre al empezar la partida. El tema es el vínculo, no la enfermedad. Por eso la regla central es simple y cruel: <strong>casi ninguna carta buena es gratis</strong>. Cuidarlo te cuesta.</span>
+          </p>
+        </div>
+        <figure class="kia-figure">
+          <img src="assets/img/kia/habitacion.webp" alt="The Protegido's hospital room at night, explorable in top-down view" loading="lazy" width="1920" height="1080" data-zoom>
+          <figcaption><span data-lang="en">The Protegido's room. The fight only starts when you walk up to the bed and talk to them.</span><span data-lang="es">La habitación del Protegido. La pelea recién empieza cuando te acercás a la cama y le hablás.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================ pilares -->
+    <section class="kia-section">
+      <div class="kia-wrap">
+        <div class="kia-head">
+          <p class="eyebrow"><span data-lang="en">DESIGN PILLARS</span><span data-lang="es">PILARES DE DISEÑO</span></p>
+          <h2><span data-lang="en">Three rules that <em>shape every turn.</em></span><span data-lang="es">Tres reglas que <em>dan forma a cada turno.</em></span></h2>
+        </div>
+        <ol class="pillars">
+          <li>
+            <h3><span data-lang="en">Sacrifice is the currency</span><span data-lang="es">El sacrificio es la moneda</span></h3>
+            <p><span data-lang="en">When energy runs out you can keep playing, but you pay with fatigue, at double the cost. Pushing yourself is always an option and never free.</span><span data-lang="es">Cuando se termina la energía podés seguir jugando, pero pagás con fatiga, al doble. Exigirte siempre es una opción y nunca es gratis.</span></p>
+          </li>
+          <li>
+            <h3><span data-lang="en">Two lives, one player</span><span data-lang="es">Dos vidas, un jugador</span></h3>
+            <p><span data-lang="en">You lose if your health <em>or</em> the Protegido's reaches zero. Every card is a question: heal them, heal yourself, or fight back?</span><span data-lang="es">Perdés si llega a cero tu vida <em>o</em> la del Protegido. Cada carta es una pregunta: ¿lo curo, me curo o ataco?</span></p>
+          </li>
+          <li>
+            <h3><span data-lang="en">Illness attacks your hand</span><span data-lang="es">La enfermedad ataca tu mano</span></h3>
+            <p><span data-lang="en">Bosses don't just deal damage: they soak, trap, burn, mutate and erase your cards. Each one breaks a different habit, so no single strategy wins every night.</span><span data-lang="es">Los jefes no solo hacen daño: mojan, atrapan, queman, mutan y borran tus cartas. Cada uno rompe un hábito distinto, así que ninguna estrategia gana todas las noches.</span></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ fatiga -->
+    <section class="kia-section" id="systems">
+      <div class="kia-wrap fatigue">
+        <div>
+          <p class="eyebrow"><span data-lang="en">CORE SYSTEM · FATIGUE</span><span data-lang="es">SISTEMA CENTRAL · FATIGA</span></p>
+          <h2 class="kia-head" style="margin:1rem 0 0"><span data-lang="en" style="font-size:clamp(2.2rem,6vw,4.6rem);line-height:.9;letter-spacing:-.065em;display:block">Exhaustion that <em>changes decisions.</em></span><span data-lang="es" style="font-size:clamp(2.2rem,6vw,4.6rem);line-height:.9;letter-spacing:-.065em;display:block">Un cansancio que <em>cambia las decisiones.</em></span></h2>
+          <p class="kia-text" style="margin-top:1.4rem"><span data-lang="en">I didn't want exhaustion to be a penalty bar that ticks in the background. In KIA it's a resource you choose to spend, and it fights back: as it rises it shuffles <strong>status cards</strong> into your deck that clog your hand.</span><span data-lang="es">No quería que el cansancio fuera una barra de castigo que corre de fondo. En KIA es un recurso que elegís gastar, y te responde: a medida que sube mete <strong>cartas de estado</strong> en tu mazo que te traban la mano.</span></p>
+          <div class="fatigue-chain" aria-label="Energy, then overexertion, then fatigue, then collapse">
+            <span><span data-lang="en">3 energy / turn</span><span data-lang="es">3 de energía / turno</span></span><i>→</i>
+            <span><span data-lang="en">Overexertion</span><span data-lang="es">Sobreexigencia</span></span><i>→</i>
+            <span class="is-hot"><span data-lang="en">Fatigue ×2</span><span data-lang="es">Fatiga ×2</span></span><i>→</i>
+            <span class="is-hot"><span data-lang="en">Collapse</span><span data-lang="es">Colapso</span></span>
+          </div>
+          <p class="fatigue-example"><span data-lang="en"><b>Example:</b> a 3-cost card with 1 energy left spends that energy and adds <b>+4 fatigue</b>. Fatigue caps at 10, recovers 1 every 2 turns, and carries over between fights: tonight's heroics are tomorrow's problem.</span><span data-lang="es"><b>Ejemplo:</b> una carta de costo 3 con 1 de energía gasta esa energía y suma <b>+4 de fatiga</b>. La fatiga llega hasta 10, baja 1 cada 2 turnos y se arrastra entre peleas: el heroísmo de esta noche es el problema de mañana.</span></p>
+        </div>
+
+        <div class="meter" id="fatigue-meter" data-level="lucido">
+          <div class="meter-top"><span><span data-lang="en">FATIGUE</span><span data-lang="es">FATIGA</span></span><span class="fatigue-value">0/10</span></div>
+          <div class="meter-bar" aria-hidden="true"></div>
+          <div class="meter-ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+          <label class="sr-only" for="fatigue-range">Fatigue</label>
+          <input id="fatigue-range" type="range" min="0" max="10" value="0" step="1">
+          <div class="fatigue-states">
+            <div class="fatigue-state" data-state="lucido"><b><span data-lang="en">LUCID</span><span data-lang="es">LÚCIDO</span><br>0–2</b><span><span data-lang="en">No effect. Play freely.</span><span data-lang="es">Sin efecto. Jugás tranquilo.</span></span></div>
+            <div class="fatigue-state" data-state="estres"><b><span data-lang="en">MILD STRESS</span><span data-lang="es">ESTRÉS LEVE</span><br>3–5</b><span><span data-lang="en"><i>Shaky Hand</i> enters your deck: when drawn, your attack cards cost +1 for 2 turns.</span><span data-lang="es"><i>Mano Temblorosa</i> entra a tu mazo: al robarla, tus cartas de ataque cuestan +1 durante 2 turnos.</span></span></div>
+            <div class="fatigue-state" data-state="agotamiento"><b><span data-lang="en">EXHAUSTION</span><span data-lang="es">AGOTAMIENTO</span><br>6–9</b><span><span data-lang="en"><i>Microsleep</i> enters your deck: when drawn, you lose 1 energy that turn.</span><span data-lang="es"><i>Microsueño</i> entra a tu mazo: al robarla, perdés 1 de energía ese turno.</span></span></div>
+            <div class="fatigue-state" data-state="colapso"><b><span data-lang="en">COLLAPSE</span><span data-lang="es">COLAPSO</span><br>10 → &lt;5</b><span><span data-lang="en">Only <b>1 card per turn</b> until fatigue drops below 5. <i>Distraction</i> sits in your hand until you pay to discard it.</span><span data-lang="es">Solo <b>1 carta por turno</b> hasta que la fatiga baje de 5. <i>Desconcentración</i> se queda en tu mano hasta que pagues para descartarla.</span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ dos vidas -->
+    <section class="kia-section">
+      <div class="kia-wrap kia-two">
+        <figure class="kia-figure">
+          <img src="assets/img/kia/enredadera.webp" alt="Combat screen: your health bar in blue, the Protegido's in green, fatigue at the top, five cards in hand and the energy orb" loading="lazy" width="1920" height="1080" data-zoom>
+          <figcaption><span data-lang="en">Combat HUD: your life (blue), the Protegido's (green), fatigue, the enemy's intent and the energy orb. A trapped card can't be played or discarded.</span><span data-lang="es">HUD del combate: tu vida (azul), la del Protegido (verde), la fatiga, la intención del enemigo y el orbe de energía. Una carta atrapada no se puede jugar ni descartar.</span></figcaption>
+        </figure>
+        <div>
+          <p class="eyebrow"><span data-lang="en">CORE SYSTEM · TWO LIVES</span><span data-lang="es">SISTEMA CENTRAL · DOS VIDAS</span></p>
+          <div class="lives" style="margin-top:1.2rem">
+            <div>
+              <h3 style="color:#7fb0ff"><span data-lang="en">YOU</span><span data-lang="es">VOS</span> · 100</h3>
+              <div class="life-bar"><span style="width:62%;background:#3f7ee8"></span></div>
+              <p><span data-lang="en">Your health is the real budget. Most powerful plays cost it, directly or through fatigue. In early playtests most defeats came from the player, not the Protegido.</span><span data-lang="es">Tu vida es el verdadero presupuesto. Casi todas las jugadas fuertes la gastan, directo o a través de la fatiga. En las primeras pruebas la mayoría de las derrotas venían del jugador, no del Protegido.</span></p>
+            </div>
+            <div>
+              <h3 style="color:#7be0a4"><span data-lang="en">PROTEGIDO</span><span data-lang="es">PROTEGIDO</span> · 100</h3>
+              <div class="life-bar"><span style="width:84%;background:#3fbf6f"></span></div>
+              <p><span data-lang="en">Enemies aim at the bed. <b>Stabilization</b> shields them over time; <b>Containment</b> shields you for a moment. Health and fatigue persist across the whole run.</span><span data-lang="es">Los enemigos apuntan a la cama. La <b>Estabilización</b> lo protege en el tiempo; la <b>Contención</b> te protege a vos un momento. La vida y la fatiga se conservan toda la partida.</span></p>
+            </div>
+          </div>
+          <p class="kia-text" style="margin-top:1.4rem"><span data-lang="en">The starter deck is deliberately level, <strong>4 / 4 / 4</strong>: four cards to care for the Protegido, four to care for yourself, four to fight. Rewards then specialize it, so every run tells a different story about what you prioritized.</span><span data-lang="es">El mazo inicial está nivelado a propósito, <strong>4 / 4 / 4</strong>: cuatro cartas para cuidar al Protegido, cuatro para cuidarte y cuatro para pelear. Las recompensas lo especializan, así que cada partida cuenta una historia distinta sobre qué priorizaste.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ jefes -->
+    <section class="kia-section" id="bosses">
+      <div class="kia-wrap">
+        <div class="kia-head">
+          <p class="eyebrow"><span data-lang="en">ENEMY DESIGN</span><span data-lang="es">DISEÑO DE ENEMIGOS</span></p>
+          <h2><span data-lang="en">Illnesses as monsters. <em>Each one breaks a habit.</em></span><span data-lang="es">Enfermedades como monstruos. <em>Cada una rompe un hábito.</em></span></h2>
+          <p><span data-lang="en">Two random bosses per run out of five, then Death. Each boss is the personification of an illness, and its mechanic is how that illness feels from the chair next to the bed. Every enemy shows its intent before acting, so the player always decides with information.</span><span data-lang="es">Dos jefes al azar por partida entre cinco, y después La Muerte. Cada jefe personifica una enfermedad, y su mecánica es cómo se siente esa enfermedad desde la silla al lado de la cama. Todo enemigo muestra su intención antes de actuar, así el jugador siempre decide con información.</span></p>
+        </div>
+
+        <div class="bosses">
+          <article class="boss">
+            <div class="boss-shot"><img src="assets/img/kia/jefe-sombra-pesada.webp" alt="La Sombra Pesada, a hunched figure dripping black shadow" loading="lazy" width="896" height="504" data-zoom="assets/img/kia/sombra-pesada.webp"><span><span data-lang="en">DEPRESSION</span><span data-lang="es">DEPRESIÓN</span></span></div>
+            <div class="boss-body">
+              <h3>La Sombra Pesada<small>THE HEAVY SHADOW</small></h3>
+              <p><span data-lang="en"><b>Soaks 2 cards per turn.</b> Wet cards you don't play get locked. <i>Absolute Apathy</i> fills your discard with Dark Thoughts, and <i>Whisper of Surrender</i> hurts the Protegido for each one still in your hand. It punishes passivity.</span><span data-lang="es"><b>Moja 2 cartas por turno.</b> Las mojadas que no jugás se bloquean. <i>Apatía Absoluta</i> llena tu descarte de Pensamientos Oscuros y <i>Susurro de Rendición</i> lastima al Protegido por cada uno que te quede en la mano. Castiga la pasividad.</span></p>
+            </div>
+          </article>
+          <article class="boss">
+            <div class="boss-shot"><img src="assets/img/kia/jefe-enredadera.webp" alt="La Enredadera, a pale figure with black thorns growing out of it" loading="lazy" width="896" height="504" data-zoom="assets/img/kia/enredadera.webp"><span><span data-lang="en">THROMBOSIS</span><span data-lang="es">TROMBOSIS</span></span></div>
+            <div class="boss-body">
+              <h3>La Enredadera<small>THE VINE</small></h3>
+              <p><span data-lang="en"><b>Traps one card per turn</b> (up to 3): it can't be played or discarded until you deal enough damage to free it. Its <i>Piercing Clot</i> bursts every 15 cards played, by anyone, ignoring shields. It turns tempo itself into a threat.</span><span data-lang="es"><b>Atrapa una carta por turno</b> (hasta 3): no se puede jugar ni descartar hasta que le hagas suficiente daño para liberarla. Su <i>Coágulo Punzante</i> estalla cada 15 cartas jugadas, de cualquiera, e ignora escudos. Convierte el ritmo mismo en una amenaza.</span></p>
+            </div>
+          </article>
+          <article class="boss">
+            <div class="boss-shot"><img src="assets/img/kia/jefe-llama-voraz.webp" alt="La Llama Voraz, a feverish woman in a burnt gown" loading="lazy" width="896" height="504" data-zoom="assets/img/kia/llama-voraz.webp"><span><span data-lang="en">FEVER</span><span data-lang="es">FIEBRE</span></span></div>
+            <div class="boss-body">
+              <h3>La Llama Voraz<small>THE RAVENOUS FLAME</small></h3>
+              <p><span data-lang="en"><b>Burns cards progressively:</b> playing a burnt card costs +1 fatigue; burn it again and it's gone. <i>Critical Temperature</i> damages everyone, itself included, more each turn, and <i>Fever Delirium</i> rerolls your card costs. A race against your own heat.</span><span data-lang="es"><b>Quema cartas de forma progresiva:</b> jugar una quemada suma +1 de fatiga; si se vuelve a quemar, se pierde. <i>Temperatura Crítica</i> lastima a todos, ella incluida, cada turno más, y <i>Delirio Febril</i> sortea los costos de tu mano. Una carrera contra tu propia fiebre.</span></p>
+            </div>
+          </article>
+          <article class="boss">
+            <div class="boss-shot"><img src="assets/img/kia/jefe-quimera.webp" alt="La Quimera, a figure covered in growing flesh" loading="lazy" width="896" height="504" data-zoom="assets/img/kia/quimera.webp"><span><span data-lang="en">CANCER</span><span data-lang="es">CÁNCER</span></span></div>
+            <div class="boss-body">
+              <h3>La Quimera<small>THE CHIMERA</small></h3>
+              <p><span data-lang="en"><b>Mutates your best healing card into a Tumor</b> that hurts the Protegido when played. While healthy, <i>Metastasis</i> spawns Fragments that strike the bed every turn, so you choose your target: the source, or the spread.</span><span data-lang="es"><b>Muta tu mejor carta de curación en un Tumor</b> que lastima al Protegido al jugarlo. Mientras está sana, <i>Metástasis</i> invoca Fragmentos que golpean la cama cada turno, así que elegís el objetivo: el origen o lo que se extiende.</span></p>
+            </div>
+          </article>
+          <article class="boss">
+            <div class="boss-shot"><img src="assets/img/kia/jefe-reloj-roto.webp" alt="El Reloj Roto, a gaunt figure surrounded by clocks running backwards" loading="lazy" width="896" height="504" data-zoom="assets/img/kia/reloj-roto.webp"><span><span data-lang="en">DEMENTIA</span><span data-lang="es">DEMENCIA</span></span></div>
+            <div class="boss-body">
+              <h3>El Reloj Roto<small>THE BROKEN CLOCK</small></h3>
+              <p><span data-lang="en"><b>Attacks memory and identity.</b> <i>Out of Time</i> reshuffles your hand; <i>Who Are You?</i> swaps who your next card affects; <i>Fragmented Memory</i> turns a card into “What was this?”, unplayable for a turn. The room fills with clocks running backwards.</span><span data-lang="es"><b>Ataca la memoria y la identidad.</b> <i>Tiempo Desfasado</i> rebaraja tu mano; <i>¿Quién Eres?</i> cambia a quién afecta tu próxima carta; <i>Recuerdo Fragmentado</i> convierte una carta en “¿Qué era esto?”, injugable por un turno. El cuarto se llena de relojes que giran al revés.</span></p>
+            </div>
+          </article>
+          <article class="boss boss--final">
+            <div class="boss-shot"><img src="assets/img/kia/jefe-la-muerte.webp" alt="La Muerte, a tall hooded figure standing beside the Protegido's bed" loading="lazy" width="896" height="504" data-zoom="assets/img/kia/la-muerte.webp"><span><span data-lang="en">FINAL</span><span data-lang="es">FINAL</span></span></div>
+            <div class="boss-body">
+              <h3>La Muerte<small>DEATH</small></h3>
+              <p><span data-lang="en"><b>Can't be damaged.</b> She has <b>Patience</b>: it drops each turn, and faster for every 5 health you willingly sacrifice. <i>The Index Finger</i> marks the Protegido, who dies in 3 turns unless they have at least half their health. The final fight asks the game's question literally.</span><span data-lang="es"><b>No se le puede hacer daño.</b> Tiene <b>Paciencia</b>: baja cada turno, y más rápido por cada 5 de vida que sacrificás voluntariamente. <i>El Dedo Índice</i> marca al Protegido, que muere en 3 turnos si no tiene al menos la mitad de su vida. La pelea final hace la pregunta del juego de forma literal.</span></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ estructura -->
+    <section class="kia-section">
+      <div class="kia-wrap">
+        <div class="kia-head">
+          <p class="eyebrow"><span data-lang="en">STRUCTURE</span><span data-lang="es">ESTRUCTURA</span></p>
+          <h2><span data-lang="en">A run is a <em>hospital stay.</em></span><span data-lang="es">Una partida es una <em>internación.</em></span></h2>
+          <p><span data-lang="en">The macro structure borrows the readability of Slay the Spire: random stretches of common encounters broken by bosses. Each day is framed as a visit, so the fiction and the loop are the same thing. The run saves after each boss.</span><span data-lang="es">La estructura grande toma la legibilidad de Slay the Spire: tramos aleatorios de encuentros comunes cortados por jefes. Cada día se presenta como una visita, así la ficción y el loop son lo mismo. La partida se guarda después de cada jefe.</span></p>
+        </div>
+        <ol class="run" aria-label="Run structure">
+          <li><span data-lang="en">Common days</span><span data-lang="es">Días comunes</span></li><li class="arrow" aria-hidden="true">→</li>
+          <li class="is-boss"><span data-lang="en">Boss 1</span><span data-lang="es">Jefe 1</span></li><li class="arrow" aria-hidden="true">→</li>
+          <li><span data-lang="en">Common days</span><span data-lang="es">Días comunes</span></li><li class="arrow" aria-hidden="true">→</li>
+          <li class="is-boss"><span data-lang="en">Boss 2</span><span data-lang="es">Jefe 2</span></li><li class="arrow" aria-hidden="true">→</li>
+          <li><span data-lang="en">Common days</span><span data-lang="es">Días comunes</span></li><li class="arrow" aria-hidden="true">→</li>
+          <li class="is-final">LA MUERTE</li>
+        </ol>
+        <ol class="day">
+          <li><h3><span data-lang="en">Morning</span><span data-lang="es">Mañana</span></h3><p><span data-lang="en">Choose your path: the usual room, a <i>Heavy Night</i> (tougher enemy, better cards) or a day with the reception shop open.</span><span data-lang="es">Elegís camino: la habitación de siempre, una <i>Noche pesada</i> (enemigo más duro, mejores cartas) o un día con la tienda de recepción abierta.</span></p></li>
+          <li><h3><span data-lang="en">Reception</span><span data-lang="es">Recepción</span></h3><p><span data-lang="en">An explorable waiting room with people, objects and small stories. Some days a golden halo opens a shop where cards are paid with <b>your own health</b>.</span><span data-lang="es">Una sala de espera explorable, con gente, objetos y pequeñas historias. Algunos días un halo dorado abre una tienda donde las cartas se pagan con <b>tu propia vida</b>.</span></p></li>
+          <li><h3><span data-lang="en">The room</span><span data-lang="es">La habitación</span></h3><p><span data-lang="en">Walk to the bed. The night begins when you talk to the Protegido.</span><span data-lang="es">Caminás hasta la cama. La noche empieza cuando le hablás al Protegido.</span></p></li>
+          <li><h3><span data-lang="en">The fight</span><span data-lang="es">La pelea</span></h3><p><span data-lang="en">Turn-based card combat with visible enemy intent.</span><span data-lang="es">Combate de cartas por turnos con la intención del enemigo a la vista.</span></p></li>
+          <li><h3><span data-lang="en">Reward</span><span data-lang="es">Recompensa</span></h3><p><span data-lang="en">A new card, health for both of you, or rest to lower fatigue.</span><span data-lang="es">Una carta nueva, vida para los dos o descansar para bajar la fatiga.</span></p></li>
+          <li><h3><span data-lang="en">The night</span><span data-lang="es">La noche</span></h3><p><span data-lang="en">Maybe nothing happens. Maybe one of 16 events does: wear, relief or crisis.</span><span data-lang="es">Puede no pasar nada. O puede pasar uno de 16 eventos: desgaste, alivio o crisis.</span></p></li>
+        </ol>
+        <div class="gallery" style="margin-top:1.6rem">
+          <figure><img src="assets/img/kia/camino.webp" alt="The Morning screen with two paths to choose from" loading="lazy" data-zoom><figcaption><span data-lang="en">Morning: two paths, two enemies, two rewards.</span><span data-lang="es">Mañana: dos caminos, dos enemigos, dos recompensas.</span></figcaption></figure>
+          <figure><img src="assets/img/kia/sala-viva.webp" alt="The explorable waiting room, animated" loading="lazy" data-zoom><figcaption><span data-lang="en">The waiting room, walkable with keyboard, mouse or gamepad.</span><span data-lang="es">La sala de espera, que se recorre con teclado, mouse o joystick.</span></figcaption></figure>
+          <figure><img src="assets/img/kia/tienda.webp" alt="The reception shop, where cards cost health" loading="lazy" data-zoom><figcaption><span data-lang="en">The halo shop: cards priced in your own health.</span><span data-lang="es">La tienda del halo: cartas que se pagan con tu vida.</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ balance -->
+    <section class="kia-section" id="balance">
+      <div class="kia-wrap">
+        <div class="kia-head">
+          <p class="eyebrow"><span data-lang="en">BALANCE BY SIMULATION</span><span data-lang="es">BALANCE POR SIMULACIÓN</span></p>
+          <h2><span data-lang="en">I don't guess numbers. <em>I run thousands of nights.</em></span><span data-lang="es">No adivino números. <em>Corro miles de noches.</em></span></h2>
+          <p><span data-lang="en">The rules engine is separate from Unity, so it runs headless: bots with different play styles play thousands of complete runs and report win rates, causes of death, boss clear rates and infinite loops. Every rule change is backed by automated tests and logged with its reason in a decision record.</span><span data-lang="es">El motor de reglas está separado de Unity, así que corre sin interfaz: bots con distintos estilos juegan miles de partidas completas y reportan victorias, causas de muerte, jefes superados y bucles infinitos. Cada cambio de reglas tiene pruebas automáticas y queda anotado con su motivo en un registro de decisiones.</span></p>
+        </div>
+
+        <div class="sim-grid">
+          <div class="sim-card">
+            <h3><span data-lang="en">ONE BALANCE PASS · 5,000 RUNS</span><span data-lang="es">UN AJUSTE · 5.000 PARTIDAS</span></h3>
+            <ul class="bars">
+              <li><span><span data-lang="en">Balanced bot</span><span data-lang="es">Bot equilibrado</span></span><span class="track"><span class="target" style="left:20%;width:15%"></span><i style="width:29.8%"></i></span><b>29.8%</b></li>
+              <li><span><span data-lang="en">Aggressive bot</span><span data-lang="es">Bot agresivo</span></span><span class="track"><span class="target" style="left:20%;width:15%"></span><i style="width:12.7%;--c:#f2b45a"></i></span><b>12.7%</b></li>
+              <li><span><span data-lang="en">Heal-only bot</span><span data-lang="es">Bot que solo cura</span></span><span class="track"><span class="target" style="left:20%;width:15%"></span><i style="width:.6%;--c:#e0533f"></i></span><b>0.2%</b></li>
+            </ul>
+            <p class="sim-note"><span data-lang="en">Run win rate. Dashed band = target (20–35%). A careful, mixed strategy wins; pure aggression rarely does; only healing never does. That's the game's question working as a rule.</span><span data-lang="es">Victorias por partida. Franja punteada = objetivo (20–35%). Una estrategia cuidadosa y mixta gana; la pura agresión casi nunca; solo curar, nunca. Es la pregunta del juego funcionando como regla.</span></p>
+            <h3 style="margin-top:1.8rem"><span data-lang="en">BOSS CLEAR RATE, SAME PASS</span><span data-lang="es">JEFES SUPERADOS, MISMO AJUSTE</span></h3>
+            <ul class="bars">
+              <li><span>Sombra Pesada</span><span class="track"><i style="width:77%"></i></span><b>77%</b></li>
+              <li><span>Enredadera</span><span class="track"><i style="width:65%"></i></span><b>65%</b></li>
+              <li><span>Llama Voraz</span><span class="track"><i style="width:73%"></i></span><b>73%</b></li>
+              <li><span>Quimera</span><span class="track"><i style="width:69%"></i></span><b>69%</b></li>
+              <li><span>Reloj Roto</span><span class="track"><i style="width:72%"></i></span><b>72%</b></li>
+              <li><span>La Muerte</span><span class="track"><i style="width:78%;--c:#a9b6c4"></i></span><b>78%</b></li>
+            </ul>
+          </div>
+
+          <div style="display:grid;gap:1.2rem;align-content:start">
+            <div class="decision">
+              <h3><span data-lang="en">Decision: a common enemy must never hit harder than a boss</span><span data-lang="es">Decisión: un enemigo común nunca puede pegar más que un jefe</span></h3>
+              <p><span data-lang="en">A playtest felt wrong: an ordinary enemy did more damage than a boss. The simulation confirmed it: <i>Relapse</i> was the #1 cause of death (13.7%) because of one card, <i>Code Blue</i>. I removed the card from that deck instead of nerfing it, and wins went from 27% to 36%.</span><span data-lang="es">Una prueba se sintió mal: un enemigo común hacía más daño que un jefe. La simulación lo confirmó: <i>Recaída</i> era la causa de muerte n.º 1 (13,7%) por una sola carta, <i>Código Azul</i>. Saqué la carta de ese mazo en vez de debilitarla, y las victorias pasaron de 27% a 36%.</span></p>
+              <p class="rule"><span data-lang="en">The rule now lives in the design bible.</span><span data-lang="es">La regla ahora está en la biblia de diseño.</span></p>
+            </div>
+            <div class="decision">
+              <h3><span data-lang="en">Decision: a risky path has to be a real choice</span><span data-lang="es">Decisión: un camino arriesgado tiene que ser una elección real</span></h3>
+              <p><span data-lang="en">The <i>Heavy Night</i> path gives a tougher enemy and a better card pick. At +30% enemy health it was always the wrong call. At +20%, choosing it when healthy wins 38.5% versus 38.4% without it: neither a trap nor a shortcut.</span><span data-lang="es">El camino <i>Noche pesada</i> da un enemigo más duro y una mejor elección de carta. Con +30% de vida enemiga siempre convenía evitarlo. Con +20%, elegirlo estando entero gana 38,5% contra 38,4% sin elegirlo: ni trampa ni atajo.</span></p>
+            </div>
+            <div class="decision">
+              <h3><span data-lang="en">Decision: difficulty as three honest curves</span><span data-lang="es">Decisión: dificultad en tres curvas honestas</span></h3>
+              <p><span data-lang="en">Easy, Normal and Hard only scale enemy health and damage. Measured with the same bot: <b>67% / 40% / 17%</b> win rate. The rules stay identical, so what you learn on Easy is still true on Hard.</span><span data-lang="es">Fácil, Intermedio y Difícil solo escalan la vida y el daño de los enemigos. Medido con el mismo bot: <b>67% / 40% / 17%</b> de victorias. Las reglas no cambian, así que lo que aprendés en Fácil sigue siendo cierto en Difícil.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpis">
+          <div><strong>108</strong><span><span data-lang="en">player cards in one data table</span><span data-lang="es">cartas del jugador en una sola tabla</span></span></div>
+          <div><strong>52</strong><span><span data-lang="en">enemy and status cards</span><span data-lang="es">cartas enemigas y de estado</span></span></div>
+          <div><strong>122</strong><span><span data-lang="en">automated rule and boss tests</span><span data-lang="es">pruebas automáticas de reglas y jefes</span></span></div>
+          <div><strong>76</strong><span><span data-lang="en">logged design decisions</span><span data-lang="es">decisiones de diseño registradas</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ producción -->
+    <section class="kia-section">
+      <div class="kia-wrap">
+        <div class="kia-head">
+          <p class="eyebrow"><span data-lang="en">FEEL &amp; PRODUCTION</span><span data-lang="es">SENSACIÓN Y PRODUCCIÓN</span></p>
+          <h2><span data-lang="en">The room <em>tells you what's happening.</em></span><span data-lang="es">El cuarto <em>te cuenta lo que pasa.</em></span></h2>
+        </div>
+        <div class="craft">
+          <div class="craft-item">
+            <figure class="kia-figure"><img src="assets/img/kia/combate-quimera.webp" alt="Animated combat: cards fly to their target, hit sparks and floating numbers" loading="lazy" width="960" height="540" data-zoom></figure>
+            <h3><span data-lang="en">A living combat scene</span><span data-lang="es">Una escena de combate viva</span></h3>
+            <p><span data-lang="en">The heart monitor beats with the Protegido's health, from 62 bpm when they're well to 140 when they're dying, and flatlines at zero. The lamp flickers when an enemy attacks. Each boss transforms the room: thorns grow pixel by pixel up the walls, flesh spreads and pulses, clocks run backwards, frost creeps in with Death.</span><span data-lang="es">El monitor late con la vida del Protegido, de 62 lpm cuando está bien a 140 cuando se apaga, y queda en línea plana en cero. La lámpara titila cuando un enemigo ataca. Cada jefe transforma el cuarto: espinas que trepan píxel a píxel por las paredes, carne que se extiende y late, relojes que giran al revés, escarcha cuando llega La Muerte.</span></p>
+          </div>
+          <div class="craft-item">
+            <figure class="kia-figure"><img src="assets/img/kia/cartas.webp" alt="The card gallery with filters by type and rarity" loading="lazy" width="1920" height="1080" data-zoom></figure>
+            <h3><span data-lang="en">Readable cards, data-driven content</span><span data-lang="es">Cartas legibles, contenido por datos</span></h3>
+            <p><span data-lang="en">Every card, enemy and boss lives in plain data tables, so content is designed and rebalanced without touching code. In game, tooltips explain every keyword and a card gallery filters by type and rarity. The interface is built from editable prefabs so I can rework layout, colors and sprites directly in the Unity editor.</span><span data-lang="es">Cada carta, enemigo y jefe vive en tablas de datos simples, así el contenido se diseña y se rebalancea sin tocar código. En el juego, los tooltips explican cada término y una galería filtra las cartas por tipo y rareza. La interfaz está hecha con prefabs editables, así puedo cambiar distribución, colores y sprites directo en el editor de Unity.</span></p>
+          </div>
+          <div class="craft-item">
+            <h3><span data-lang="en">A musical motif that follows you</span><span data-lang="es">Un motivo musical que te acompaña</span></h3>
+            <p><span data-lang="en">The 8/16-bit soundtrack is composed and synthesized in code. A five-note KIA motif returns in every theme, changed by the moment: a music box in the room, heroic in combat, urgent with bosses, nostalgic with Death. An adaptive tension layer enters in sync when you or the Protegido drop to 25% health.</span><span data-lang="es">La música 8/16 bits está compuesta y sintetizada en código. Un motivo de cinco notas de KIA vuelve en todos los temas, cambiado según el momento: cajita de música en la habitación, heroico en el combate, urgente con los jefes, nostálgico con La Muerte. Una capa de tensión adaptativa entra sincronizada cuando a vos o al Protegido les queda 25% de vida.</span></p>
+          </div>
+          <div class="craft-item">
+            <h3><span data-lang="en">Pixel-perfect night</span><span data-lang="es">Una noche pixel-perfect</span></h3>
+            <p><span data-lang="en">Every sprite renders at an integer scale, so pixels stay even. Each place has a dithered light map in 16-bit bands: cold corridor light behind the enemy, one warm lamp over the bed. Bosses tint the room red; Death turns it cold. Full keyboard, mouse and gamepad support.</span><span data-lang="es">Cada sprite se dibuja en escala entera, así los píxeles quedan parejos. Cada lugar tiene un mapa de luz tramado en bandas tipo 16 bits: luz fría de pasillo detrás del enemigo, una sola lámpara cálida sobre la cama. Los jefes tiñen el cuarto de rojo; La Muerte lo enfría. Soporte completo de teclado, mouse y joystick.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ evolución -->
+    <section class="kia-section">
+      <div class="kia-wrap">
+        <div class="kia-head">
+          <p class="eyebrow"><span data-lang="en">FROM CONCEPT TO BUILD</span><span data-lang="es">DEL CONCEPTO AL BUILD</span></p>
+          <h2><span data-lang="en">Art direction first, <em>then the game.</em></span><span data-lang="es">Primero la dirección de arte, <em>después el juego.</em></span></h2>
+          <p><span data-lang="en">KIA started as concept sheets and mockups: character turnarounds for every illness (male and female versions, expressions) and target screens. The playable build keeps that direction and makes it readable at gameplay scale.</span><span data-lang="es">KIA empezó como fichas de concepto y maquetas: personajes de cada enfermedad en todas sus vistas (versión hombre y mujer, expresiones) y pantallas objetivo. El build jugable mantiene esa dirección y la vuelve legible a escala de juego.</span></p>
+        </div>
+        <div class="evolution">
+          <figure class="kia-figure">
+            <span class="tag"><span data-lang="en">CONCEPT</span><span data-lang="es">CONCEPTO</span></span>
+            <img src="assets/img/case-studies/keep-it-alive/enemies-depresion.webp" alt="Concept sheet for La Sombra Pesada: front, three-quarter, side and back views, male and female versions" loading="lazy" data-zoom>
+            <figcaption><span data-lang="en">Character art direction sheet for La Sombra Pesada.</span><span data-lang="es">Ficha de dirección de arte de La Sombra Pesada.</span></figcaption>
+          </figure>
+          <figure class="kia-figure">
+            <span class="tag tag--now">BUILD</span>
+            <img src="assets/img/kia/jefe-sombra-pesada.webp" alt="La Sombra Pesada in the current build, in the night hospital room" loading="lazy" data-zoom="assets/img/kia/sombra-pesada.webp">
+            <figcaption><span data-lang="en">The same character in the current build, animated and lit for the night room.</span><span data-lang="es">El mismo personaje en el build actual, animado e iluminado para el cuarto de noche.</span></figcaption>
+          </figure>
+          <figure class="kia-figure">
+            <span class="tag"><span data-lang="en">MOCKUP</span><span data-lang="es">MAQUETA</span></span>
+            <img src="assets/img/case-studies/keep-it-alive/gameplay-2.webp" alt="Early mockup of the final fight: Death with a scythe, the player and the bed" loading="lazy" data-zoom>
+            <figcaption><span data-lang="en">Early target screen for the final fight: Death as a fighter with a health bar.</span><span data-lang="es">Pantalla objetivo temprana de la pelea final: La Muerte como un rival con barra de vida.</span></figcaption>
+          </figure>
+          <figure class="kia-figure">
+            <span class="tag tag--now">BUILD</span>
+            <img src="assets/img/kia/jefe-la-muerte.webp" alt="La Muerte in the current build, standing beside the bed, with her Patience meter" loading="lazy" data-zoom="assets/img/kia/la-muerte.webp">
+            <figcaption><span data-lang="en">In the build she has no health bar. She waits beside the bed, and her Patience is what you wear down.</span><span data-lang="es">En el build no tiene barra de vida. Espera al lado de la cama, y lo que desgastás es su Paciencia.</span></figcaption>
+          </figure>
+        </div>
+        <p class="eyebrow" style="margin:3rem 0 1rem"><span data-lang="en">THE REST OF THE ART DIRECTION SHEETS</span><span data-lang="es">EL RESTO DE LAS FICHAS DE DIRECCIÓN DE ARTE</span></p>
+        <div class="gallery">
+          <figure><img src="assets/img/case-studies/keep-it-alive/enemies-enredadera.webp" alt="Art direction sheet: La Enredadera" loading="lazy" data-zoom><figcaption>La Enredadera</figcaption></figure>
+          <figure><img src="assets/img/case-studies/keep-it-alive/enemies-fiebre.webp" alt="Art direction sheet: La Llama Voraz" loading="lazy" data-zoom><figcaption>La Llama Voraz</figcaption></figure>
+          <figure><img src="assets/img/case-studies/keep-it-alive/enemies-quimera.webp" alt="Art direction sheet: La Quimera" loading="lazy" data-zoom><figcaption>La Quimera</figcaption></figure>
+          <figure><img src="assets/img/case-studies/keep-it-alive/enemies-reloj-roto.webp" alt="Art direction sheet: El Reloj Roto" loading="lazy" data-zoom><figcaption>El Reloj Roto</figcaption></figure>
+          <figure><img src="assets/img/case-studies/keep-it-alive/enemies-muerte.webp" alt="Art direction sheet: La Muerte" loading="lazy" data-zoom><figcaption>La Muerte</figcaption></figure>
+          <figure><img src="assets/img/case-studies/keep-it-alive/cards.webp" alt="Early icon sheet for card effects" loading="lazy" data-zoom><figcaption><span data-lang="en">Early icon sheet for card effects</span><span data-lang="es">Hoja temprana de íconos de efectos</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ lo que sigue -->
+    <section class="kia-section">
+      <div class="kia-wrap kia-two" style="align-items:start">
+        <div>
+          <p class="eyebrow"><span data-lang="en">WHAT I LEARNED</span><span data-lang="es">LO QUE APRENDÍ</span></p>
+          <p class="kia-lead" style="margin-top:1rem"><span data-lang="en">A theme only lands when it's a rule. “Sacrifice” stayed abstract until overexertion made every extra card cost my own health; “illness” stayed decoration until each boss attacked the hand in its own way.</span><span data-lang="es">Un tema solo funciona cuando es una regla. “Sacrificio” fue abstracto hasta que la sobreexigencia hizo que cada carta de más costara mi propia vida; “enfermedad” fue decoración hasta que cada jefe atacó la mano a su manera.</span></p>
+          <p class="kia-text" style="margin-top:1.2rem"><span data-lang="en">The second lesson was process: write the rule, test it, simulate it, then feel it in a human playtest. The simulation finds the broken numbers; the playtest finds the broken feelings.</span><span data-lang="es">La segunda lección fue de proceso: escribir la regla, probarla, simularla y después sentirla en una prueba humana. La simulación encuentra los números rotos; la prueba humana, las sensaciones rotas.</span></p>
+        </div>
+        <div>
+          <p class="eyebrow"><span data-lang="en">NEXT</span><span data-lang="es">LO QUE SIGUE</span></p>
+          <ul class="next-list" style="margin-top:1rem">
+            <li><span><span data-lang="en"><b>Illustrated cards</b> for the whole set, in the style of the starter deck.</span><span data-lang="es"><b>Cartas ilustradas</b> para todo el set, con el estilo del mazo inicial.</span></span></li>
+            <li><span><span data-lang="en"><b>Writing pass</b>: dialogue for the reception, the doctor, the room and each boss.</span><span data-lang="es"><b>Pasada de escritura</b>: diálogos de la recepción, el médico, la habitación y cada jefe.</span></span></li>
+            <li><span><span data-lang="en"><b>External playtests</b> to tune what bots can't measure: tension, clarity, attachment.</span><span data-lang="es"><b>Pruebas con jugadores externos</b> para ajustar lo que los bots no miden: tensión, claridad, apego.</span></span></li>
+            <li><span><span data-lang="en"><b>Meta progression</b> beyond the current unlockable cards.</span><span data-lang="es"><b>Progreso entre partidas</b> más allá de las cartas desbloqueables actuales.</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="kia-cta">
+      <div class="kia-wrap">
+        <p class="eyebrow"><span data-lang="en">THANKS FOR READING</span><span data-lang="es">GRACIAS POR LEER</span></p>
+        <h2><span data-lang="en">Keep it <em>alive.</em></span><span data-lang="es">Mantenelo <em>vivo.</em></span></h2>
+        <div class="kia-cta-links">
+          <a class="button-primary" href="index.html#work"><span data-lang="en">SEE OTHER PROJECTS</span><span data-lang="es">VER OTROS PROYECTOS</span> <span aria-hidden="true">→</span></a>
+          <a class="button-ghost" href="index.html#contact"><span data-lang="en">CONTACT &amp; CV</span><span data-lang="es">CONTACTO Y CV</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span class="year"></span> LAUTARO MONTOYA</span>
+    <span>KEEP IT ALIVE / CASE STUDY</span>
+    <a href="#main"><span data-lang="en">BACK TO TOP</span><span data-lang="es">VOLVER ARRIBA</span> ↑</a>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close">×</button>
+    <button class="lightbox-step" type="button" data-lightbox-step="-1" aria-label="Previous">‹</button>
+    <figure><img src="data:," alt=""><figcaption></figcaption></figure>
+    <button class="lightbox-step" type="button" data-lightbox-step="1" aria-label="Next">›</button>
+  </div>
+</body>
+</html>

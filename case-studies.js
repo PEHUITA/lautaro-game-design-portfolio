@@ -1,56 +1,13 @@
-﻿const CASE_STUDIES = {
-  kia: {
-    number: "01",
-    images: [
-      "assets/img/case-studies/keep-it-alive/KIA TITLE.jpg",
-      "assets/img/case-studies/keep-it-alive/Kia cards.jpg",
-      "assets/img/case-studies/keep-it-alive/KIA GAMEPLAY.jpg",
-      "assets/img/case-studies/keep-it-alive/KIA GAMEPLAY (2).jpg",
-      "assets/img/case-studies/keep-it-alive/KIA GAMEPLAY (3).jpg",
-      "assets/img/case-studies/keep-it-alive/KIA GAMEPLAY (4).jpg",
-      "assets/img/case-studies/keep-it-alive/KIA GAMEPLAY (5).jpg",
-      "assets/img/case-studies/keep-it-alive/KIA GAMEPLAY (6).jpg",
-      "assets/img/case-studies/keep-it-alive/KIA ENEMIES depresion.jpg",
-      "assets/img/case-studies/keep-it-alive/KIA ENEMIES enredadera.jpg",
-      "assets/img/case-studies/keep-it-alive/KIA ENEMIES fiebre.jpg",
-      "assets/img/case-studies/keep-it-alive/KIA ENEMIES quimera.jpg",
-      "assets/img/case-studies/keep-it-alive/KIA ENEMIES reloj roto.jpg",
-      "assets/img/case-studies/keep-it-alive/KIA ENEMIES= muerte.jpg"
-    ],
-    en: {
-      title: "Keep It Alive",
-      tagline: "How much are you willing to sacrifice to keep them alive?",
-      status: "WORK IN PROGRESS",
-      overview: "Keep It Alive is a turn-based card game about an individual fighting against a system that constantly pushes them toward exhaustion and collapse. The player controls their own condition while trying to keep another person alive. The hospital setting is part of the game's visual language, but the central conflict is personal rather than a doctor simulation.",
-      role: "Game Designer / Unity Developer",
-      intent: "Turn exhaustion into a gameplay system that changes decisions instead of functioning as a simple penalty. The central question is how much of the player's own health, energy and stability they are willing to sacrifice to protect someone else.",
-      mechanics: "Player HP, Target HP, Energy, Fatigue, Overexertion, Stabilization, Containment, card categories, status effects and enemy-specific effects on the player's hand.",
-      loop: "Draw cards → read the current threat → spend Energy → play an intervention → protect the Target → manage Fatigue → respond to enemy effects → survive the encounter.",
-      decisions: "The resource chain is designed to escalate pressure: Energy can become Fatigue, Fatigue can become Exhaustion, and Exhaustion can eventually affect the player's own HP. Overexertion allows certain cards to be played without enough Energy, but converts the missing cost into additional Fatigue. Stabilization protects the Target persistently, while Containment protects the Player temporarily. Almost every strong action therefore carries a personal cost.",
-      development: "Actively being developed in Unity using C#. Current work includes gameplay systems, card data, interactions, UI and enemy mechanics. A major design feature is that enemies can attack the player's hand itself: Fever can burn cards, Depression can wet and disable them, while other threats alter the information or availability of cards. The goal is for enemy mechanics to directly affect decision making."
-    },
-    es: {
-      title: "Keep It Alive",
-      tagline: "¿Cuánto estás dispuesto a sacrificar para mantenerlo vivo?",
-      status: "EN DESARROLLO",
-      overview: "Keep It Alive es un juego de cartas por turnos sobre una persona que lucha contra un sistema que constantemente la empuja hacia el agotamiento y el colapso. El jugador gestiona su propio estado mientras intenta mantener con vida a otra persona. El hospital forma parte del lenguaje visual del juego, pero el conflicto central es personal y no una simulación médica.",
-      role: "Game Designer / Unity Developer",
-      intent: "Convertir el agotamiento en un sistema de gameplay que modifique las decisiones en lugar de funcionar como una simple penalización. La pregunta central es cuánto de la propia salud, energía y estabilidad está dispuesto a sacrificar el jugador para proteger a otra persona.",
-      mechanics: "HP del jugador, HP del objetivo, Energía, Fatiga, Sobreexigencia, Estabilización, Contención, categorías de cartas, estados y efectos específicos de los enemigos sobre la mano.",
-      loop: "Robar cartas → leer la amenaza actual → gastar Energía → jugar una intervención → proteger al Objetivo → gestionar la Fatiga → responder a los efectos enemigos → sobrevivir al encuentro.",
-      decisions: "La cadena de recursos está diseñada para aumentar la presión: la Energía puede convertirse en Fatiga, la Fatiga en Agotamiento y el Agotamiento puede terminar afectando el propio HP del jugador. La Sobreexigencia permite jugar determinadas cartas sin suficiente Energía, pero convierte el costo faltante en Fatiga adicional. La Estabilización protege al Objetivo de forma persistente, mientras que la Contención protege temporalmente al jugador. De esta manera, casi toda acción poderosa tiene un costo personal.",
-      development: "En desarrollo activo en Unity utilizando C#. El trabajo actual incluye sistemas de gameplay, datos e interacciones de cartas, UI y mecánicas de enemigos. Una de las características centrales es que los enemigos pueden atacar directamente la mano: Fiebre puede quemar cartas, Depresión puede mojarlas e inutilizarlas y otras amenazas modifican la información o disponibilidad de las cartas. La intención es que la mecánica enemiga afecte directamente las decisiones."
-    }
-  },
-
+// Casos de estudio que se abren en el modal de index.html (KIA tiene su propia página: kia.html).
+window.CASE_STUDIES = {
   blood: {
     number: "02",
     images: [
-      "assets/img/case-studies/blood-debt/title.jpg",
-      "assets/img/case-studies/blood-debt/judging.jpg",
-      "assets/img/case-studies/blood-debt/side ab.jpg",
-      "assets/img/case-studies/blood-debt/soul play.jpg",
-      "assets/img/case-studies/blood-debt/soul play (2).jpg"
+      "assets/img/case-studies/blood-debt/title.webp",
+      "assets/img/case-studies/blood-debt/judging.webp",
+      "assets/img/case-studies/blood-debt/side-ab.webp",
+      "assets/img/case-studies/blood-debt/soul-play.webp",
+      "assets/img/case-studies/blood-debt/soul-play-2.webp"
     ],
     en: {
       title: "Blood Debt",
@@ -81,9 +38,9 @@
   junk: {
     number: "03",
     images: [
-      "assets/img/case-studies/junkborn/title junk.jpg",
-      "assets/img/case-studies/junkborn/gameplay.jpg",
-      "assets/img/case-studies/junkborn/synergies.jpg"
+      "assets/img/case-studies/junkborn/title-junk.webp",
+      "assets/img/case-studies/junkborn/gameplay.webp",
+      "assets/img/case-studies/junkborn/synergies.webp"
     ],
     en: {
       title: "Junkborn",
@@ -114,9 +71,9 @@
   breath: {
     number: "04",
     images: [
-      "assets/img/case-studies/last-breath/title.gif",
-      "assets/img/case-studies/last-breath/gameplay.jpg",
-      "assets/img/case-studies/last-breath/previous fight.jpg"
+      "assets/img/case-studies/last-breath/title.webp",
+      "assets/img/case-studies/last-breath/gameplay.webp",
+      "assets/img/case-studies/last-breath/previous-fight.webp"
     ],
     en: {
       title: "Last Breath",
@@ -147,10 +104,10 @@
   grey: {
     number: "05",
     images: [
-      "assets/img/case-studies/grey-market/title.jpg",
-      "assets/img/case-studies/grey-market/characters.jpg",
-      "assets/img/case-studies/grey-market/gameplay.jpg",
-      "assets/img/case-studies/grey-market/gameplay 2.jpg"
+      "assets/img/case-studies/grey-market/title.webp",
+      "assets/img/case-studies/grey-market/characters.webp",
+      "assets/img/case-studies/grey-market/gameplay.webp",
+      "assets/img/case-studies/grey-market/gameplay-2.webp"
     ],
     en: {
       title: "Grey Market",
@@ -181,9 +138,9 @@
   shift: {
     number: "06",
     images: [
-      "assets/img/case-studies/shift-protocol/title.jpg",
-      "assets/img/case-studies/shift-protocol/explication.jpg",
-      "assets/img/case-studies/shift-protocol/gameplay.jpg"
+      "assets/img/case-studies/shift-protocol/title.webp",
+      "assets/img/case-studies/shift-protocol/explication.webp",
+      "assets/img/case-studies/shift-protocol/gameplay.webp"
     ],
     en: {
       title: "Shift Protocol",
@@ -211,113 +168,3 @@
     }
   }
 };
-
-function getCaseLanguage() {
-  return localStorage.getItem("lm-language") === "es" ? "es" : "en";
-}
-
-function openCaseStudy(projectId) {
-  const modal = document.getElementById("case-modal");
-  const data = CASE_STUDIES[projectId];
-
-  if (!modal || !data) return;
-
-  const language = getCaseLanguage();
-  const content = data[language] || data.en;
-  const images = data.images || [];
-
-  document.getElementById("case-modal-number").textContent = data.number;
-  document.getElementById("case-modal-status").textContent = content.status;
-  document.getElementById("case-modal-title").textContent = content.title;
-  document.getElementById("case-modal-tagline").textContent = content.tagline;
-  document.getElementById("case-modal-overview").textContent = content.overview;
-  document.getElementById("case-modal-role").textContent = content.role;
-  document.getElementById("case-modal-intent").textContent = content.intent;
-  document.getElementById("case-modal-mechanics").textContent = content.mechanics;
-  document.getElementById("case-modal-loop").textContent = content.loop;
-  document.getElementById("case-modal-decisions").textContent = content.decisions;
-  document.getElementById("case-modal-development").textContent = content.development;
-
-  const mainImage = document.getElementById("case-modal-image");
-  const thumbs = document.getElementById("case-modal-thumbs");
-
-  thumbs.innerHTML = "";
-
-  if (images.length > 0) {
-    mainImage.src = images[0];
-    mainImage.alt = content.title;
-
-    images.forEach(function(image, index) {
-      const button = document.createElement("button");
-      const thumbnail = document.createElement("img");
-
-      button.type = "button";
-      button.className = "case-modal-thumb";
-      button.setAttribute("aria-label", "View image " + (index + 1));
-
-      thumbnail.src = image;
-      thumbnail.alt = content.title + " image " + (index + 1);
-
-      button.appendChild(thumbnail);
-
-      button.addEventListener("click", function() {
-        mainImage.src = image;
-        mainImage.alt = content.title;
-
-        document.querySelectorAll(".case-modal-thumb").forEach(function(item) {
-          item.classList.remove("is-active");
-        });
-
-        button.classList.add("is-active");
-      });
-
-      if (index === 0) {
-        button.classList.add("is-active");
-      }
-
-      thumbs.appendChild(button);
-    });
-  }
-
-  modal.classList.add("is-open");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("case-modal-open");
-}
-
-function closeCaseStudy() {
-  const modal = document.getElementById("case-modal");
-
-  if (!modal) return;
-
-  modal.classList.remove("is-open");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("case-modal-open");
-}
-
-function initCaseStudies() {
-  document.querySelectorAll(".project").forEach(function(project) {
-    const trigger = project.querySelector(".project-trigger");
-
-    if (!trigger) return;
-
-    trigger.addEventListener("click", function(event) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      const projectId = project.dataset.project;
-      openCaseStudy(projectId);
-    });
-  });
-
-  document.querySelectorAll("[data-case-close]").forEach(function(element) {
-    element.addEventListener("click", closeCaseStudy);
-  });
-
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-      closeCaseStudy();
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", initCaseStudies);

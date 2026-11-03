@@ -1,5 +1,7 @@
 /*
   Cache-Control: no-cache, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
 
-/*.webp
+/assets/*
   Cache-Control: public, max-age=2592000

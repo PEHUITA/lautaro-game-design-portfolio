@@ -1,31 +1,38 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Lautaro Montoya â€” game designer portfolio. Systems, worlds and choices with consequences.">
+  <title>Lautaro Montoya — Game Designer</title>
+  <meta name="description" content="Lautaro Montoya — game designer. Systems, tension and choices with consequences. Now building Keep It Alive, a card game about how much you would sacrifice to keep someone alive.">
   <meta name="theme-color" content="#f4f1e8">
-  <title>Lautaro Montoya â€” Game Designer</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lautaro Montoya — Game Designer">
+  <meta property="og:description" content="Systems, tension and choices with consequences. Now building Keep It Alive (KIA).">
+  <meta property="og:image" content="assets/img/og-kia.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2311110f'/%3E%3Cpath d='M3 17h7l3-8 4 15 3-7h9' fill='none' stroke='%23d7ff38' stroke-width='3'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20260920">
-  <script defer src="lib/manifest.js?v=20260920"></script>
-  <script defer src="main.js?v=20260920"></script>
-    <script defer src="case-studies.js"></script>
+  <link rel="stylesheet" href="styles.css?v=20261103">
+  <script defer src="case-studies.js?v=20261103"></script>
+  <script defer src="main.js?v=20261103"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main"><span data-lang="en">Skip to content</span><span data-lang="es">Saltar al contenido</span></a>
   <div class="splash" aria-hidden="true"><span>LM//GD</span><span>LOADING SYSTEMS</span></div>
   <div class="cursor-coords" aria-hidden="true">[000, 000]</div>
+
   <header class="site-header">
-    <a class="logo" href="#top" aria-label="Lautaro Montoya, home">LM<span>â€”</span>GD</a>
-    <nav aria-label="Primary navigation">
-      <a href="#work" data-i18n="navWork">WORK</a>
-      <a href="#about" data-i18n="navAbout">ABOUT</a>
-      <a href="#contact" data-i18n="navContact">CONTACT</a>
+    <a class="logo" href="#top" aria-label="Lautaro Montoya">LM<span>—</span>GD</a>
+    <nav aria-label="Primary">
+      <a href="#work"><span data-lang="en">WORK</span><span data-lang="es">PROYECTOS</span></a>
+      <a href="kia.html">KIA</a>
+      <a class="nav-extra" href="#about"><span data-lang="en">ABOUT</span><span data-lang="es">SOBRE MÍ</span></a>
+      <a href="#contact"><span data-lang="en">CONTACT</span><span data-lang="es">CONTACTO</span></a>
     </nav>
-    <button class="lang-toggle" type="button" aria-label="Switch language"><span>ES</span><b>/</b><span>EN</span></button>
+    <button class="lang-toggle" type="button" aria-label="Cambiar a español / Switch to English"><span>EN</span><b>/</b><span>ES</span></button>
   </header>
 
   <main id="main">
@@ -33,130 +40,192 @@
       <div class="hero-grid">
         <div class="hero-label">[ 01 / GAME DESIGNER ]</div>
         <div class="hero-main">
-          <p class="eyebrow" data-i18n="heroEyebrow">SYSTEMS / TENSION / CONSEQUENCE</p>
-          <h1 data-i18n="heroTitle">I DESIGN<br>RULES THAT<br><em>PUSH BACK.</em></h1>
+          <p class="eyebrow"><span data-lang="en">SYSTEMS / TENSION / CONSEQUENCE</span><span data-lang="es">SISTEMAS / TENSIÓN / CONSECUENCIA</span></p>
+          <h1><span data-lang="en">I DESIGN<br>RULES THAT<br><em>PUSH BACK.</em></span><span data-lang="es">DISEÑO REGLAS<br>QUE TE<br><em>RESPONDEN.</em></span></h1>
         </div>
         <div class="hero-side">
-          <p data-i18n="heroText">Game designer building playable systems where every choice changes the shape of the next one.</p>
-          <a class="arrow-link" href="#work" data-i18n="heroCta">ENTER THE ARCHIVE <span>â†“</span></a>
+          <p><span data-lang="en">Game designer building playable systems where every choice changes the shape of the next one.</span><span data-lang="es">Game designer que crea sistemas jugables donde cada elección cambia la forma de la siguiente.</span></p>
+          <a class="now-building" href="kia.html">
+            <span class="pulse" aria-hidden="true"></span>
+            <span><span data-lang="en">NOW BUILDING</span><span data-lang="es">AHORA DESARROLLANDO</span></span>
+            <b>KEEP IT ALIVE →</b>
+          </a>
+          <a class="arrow-link" href="#work"><span data-lang="en">ENTER THE ARCHIVE</span><span data-lang="es">ENTRAR AL ARCHIVO</span> <span aria-hidden="true">↓</span></a>
         </div>
       </div>
       <div class="hero-stamp" aria-hidden="true">DESIGN<br>IS A<br>VERB</div>
     </section>
 
-    <section class="ticker" aria-label="Design disciplines"><div><span>GAMEPLAY SYSTEMS</span><i>âœ¦</i><span>NARRATIVE DESIGN</span><i>âœ¦</i><span>ECONOMY</span><i>âœ¦</i><span>PLAYER CHOICE</span><i>âœ¦</i><span>GAMEPLAY SYSTEMS</span><i>âœ¦</i><span>NARRATIVE DESIGN</span></div></section>
+    <section class="ticker" aria-hidden="true"><div><span>GAMEPLAY SYSTEMS</span><i>✦</i><span>CARD DESIGN</span><i>✦</i><span>NARRATIVE DESIGN</span><i>✦</i><span>BALANCE BY SIMULATION</span><i>✦</i><span>PLAYER CHOICE</span><i>✦</i><span>GAMEPLAY SYSTEMS</span><i>✦</i><span>CARD DESIGN</span><i>✦</i><span>NARRATIVE DESIGN</span><i>✦</i><span>BALANCE BY SIMULATION</span><i>✦</i><span>PLAYER CHOICE</span><i>✦</i></div></section>
+
+    <!-- KIA destacado -->
+    <section class="spotlight" aria-labelledby="spotlight-title">
+      <div class="spotlight-media reveal">
+        <img src="assets/img/kia/combate-quimera.webp" alt="Keep It Alive: combat against La Quimera, with the player's hand of cards, the energy orb and the two health bars" width="960" height="540">
+        <span class="spotlight-tag">LIVE BUILD · UNITY 6 · C#</span>
+      </div>
+      <div class="spotlight-copy reveal">
+        <p class="eyebrow"><span data-lang="en">FEATURED / IN DEVELOPMENT</span><span data-lang="es">DESTACADO / EN DESARROLLO</span></p>
+        <h2 id="spotlight-title">KEEP IT <em>ALIVE</em></h2>
+        <p class="spotlight-question"><span data-lang="en">How much are you willing to sacrifice to keep them alive?</span><span data-lang="es">¿Cuánto estás dispuesto a sacrificar para mantenerlo vivo?</span></p>
+        <p><span data-lang="en">A pixel-art roguelite card game set in a hospital at night. You protect someone you love from illnesses turned into monsters, and they don't attack you: they attack your hand. Every strong card costs you something.</span><span data-lang="es">Un roguelite de cartas en pixel art, en un hospital de noche. Protegés a alguien que querés de enfermedades convertidas en monstruos, y no te atacan a vos: atacan tu mano. Toda carta fuerte te cuesta algo.</span></p>
+        <dl class="spotlight-stats">
+          <div><dt>108</dt><dd><span data-lang="en">player cards</span><span data-lang="es">cartas del jugador</span></dd></div>
+          <div><dt>6</dt><dd><span data-lang="en">bosses that break your hand</span><span data-lang="es">jefes que rompen tu mano</span></dd></div>
+          <div><dt><span data-lang="en">5,000</span><span data-lang="es">5.000</span></dt><dd><span data-lang="en">simulated runs per balance pass</span><span data-lang="es">partidas simuladas por ajuste</span></dd></div>
+        </dl>
+        <a class="button-primary" href="kia.html"><span data-lang="en">READ THE FULL CASE STUDY</span><span data-lang="es">VER EL CASO COMPLETO</span> <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
 
     <section class="intro grid-section" id="about">
       <p class="section-index">02.</p>
       <div class="intro-copy reveal">
-        <p class="eyebrow" data-i18n="aboutEyebrow">THE DESIGNER</p>
-        <h2 data-i18n="aboutTitle">I make worlds that ask players to <em>pay attention.</em></h2>
+        <p class="eyebrow"><span data-lang="en">THE DESIGNER</span><span data-lang="es">EL DISEÑADOR</span></p>
+        <h2><span data-lang="en">I make worlds that ask players to <em>pay attention.</em></span><span data-lang="es">Creo mundos que le piden al jugador que <em>preste atención.</em></span></h2>
       </div>
       <div class="intro-side reveal">
-        <img src="assets/img/lautaro-montoya.webp" alt="Portrait of Lautaro Montoya" loading="lazy">
-        <p data-i18n="aboutText">I am Lautaro Montoya, a game designer interested in the friction between mechanics and meaning. My work turns unstable spaces, scarce resources, secrets, debt and adaptation into playable decisions.</p>
+        <img src="assets/img/lautaro-montoya.webp" alt="Portrait of Lautaro Montoya" loading="lazy" width="240" height="240">
+        <div>
+          <p><span data-lang="en">I am Lautaro Montoya, a game designer from Argentina interested in the friction between mechanics and meaning. My work turns unstable spaces, scarce resources, secrets, debt and adaptation into playable decisions.</span><span data-lang="es">Soy Lautaro Montoya, game designer de Argentina, interesado en la fricción entre mecánicas y significado. Mi trabajo convierte espacios inestables, recursos escasos, secretos, deuda y adaptación en decisiones jugables.</span></p>
+          <p><span data-lang="en">I design in documents and prove it in builds: rules written down, tested by hundreds of simulated runs, then tuned by hand until the choice feels right.</span><span data-lang="es">Diseño en documentos y lo demuestro en builds: reglas escritas, probadas con cientos de partidas simuladas y ajustadas a mano hasta que la decisión se siente bien.</span></p>
+        </div>
       </div>
     </section>
 
     <section class="stats" aria-label="Design focus">
-      <div><strong data-count="06">06</strong><span data-i18n="statProjects">ORIGINAL PROJECTS</span></div>
-      <div><strong data-count="04">04</strong><span data-i18n="statPillars">DESIGN PILLARS</span></div>
-      <div><strong>âˆž</strong><span data-i18n="statCuriosity">WAYS TO BREAK A RULE</span></div>
+      <div><strong>06</strong><span><span data-lang="en">ORIGINAL PROJECTS</span><span data-lang="es">PROYECTOS ORIGINALES</span></span></div>
+      <div><strong>01</strong><span><span data-lang="en">PLAYABLE BUILD IN UNITY</span><span data-lang="es">BUILD JUGABLE EN UNITY</span></span></div>
+      <div><strong>∞</strong><span><span data-lang="en">WAYS TO BREAK A RULE</span><span data-lang="es">FORMAS DE ROMPER UNA REGLA</span></span></div>
     </section>
 
     <section class="work" id="work">
-      <div class="work-heading"><p class="section-index">03.</p><div><p class="eyebrow" data-i18n="workEyebrow">SELECTED PROJECTS</p><h2 data-i18n="workTitle">THE <em>PLAYABLE</em> ARCHIVE</h2></div><p class="work-note" data-i18n="workNote">Click a project to change the signal.</p></div>
+      <div class="work-heading">
+        <p class="section-index">03.</p>
+        <div>
+          <p class="eyebrow"><span data-lang="en">SELECTED PROJECTS</span><span data-lang="es">PROYECTOS SELECCIONADOS</span></p>
+          <h2><span data-lang="en">THE <em>PLAYABLE</em> ARCHIVE</span><span data-lang="es">EL ARCHIVO <em>JUGABLE</em></span></h2>
+        </div>
+        <p class="work-note"><span data-lang="en">Open a project to read its case study.</span><span data-lang="es">Abrí un proyecto para leer su caso de estudio.</span></p>
+      </div>
+
       <div class="project-list">
-        <article class="project project--featured reveal" data-project="shift">
-          <div class="project-number">01</div><div class="project-image"><img src="assets/img/shift-protocol.webp" alt="Desfase â€” Shift Protocol game artwork" fetchpriority="high"><span>3D PUZZLE</span></div>
-          <div class="project-info"><h3>DESFASE <em>â€” SHIFT PROTOCOL</em></h3><p data-es="Un puzzle 3D donde entender las reglas de una realidad inestable es parte de resolverla." data-en="A 3D puzzle where understanding an unstable reality is part of solving it.">A 3D puzzle where understanding an unstable reality is part of solving it.</p></div><button class="project-trigger" type="button" aria-label="Activate project">â†—</button>
+        <article class="project project--featured reveal">
+          <div class="project-number">01</div>
+          <div class="project-image"><img src="assets/img/kia/jefe-enredadera.webp" alt="Keep It Alive: La Enredadera, a boss covered in thorns, in the hospital room" width="896" height="504"><span>ROGUELITE CARDS · UNITY</span></div>
+          <div class="project-info">
+            <h3>KEEP <em>IT ALIVE</em></h3>
+            <p><span data-lang="en">A card game where illnesses attack your hand and every strong play costs your own health. Playable build, six bosses, balance proven by simulation.</span><span data-lang="es">Un juego de cartas donde las enfermedades atacan tu mano y cada jugada fuerte cuesta tu propia salud. Build jugable, seis jefes y balance probado por simulación.</span></p>
+            <p class="project-status">● <span data-lang="en">IN DEVELOPMENT</span><span data-lang="es">EN DESARROLLO</span></p>
+          </div>
+          <a class="project-trigger" href="kia.html"><span class="sr-only">Keep It Alive — case study</span><span aria-hidden="true">↗</span></a>
         </article>
-        <article class="project reveal" data-project="blood"><div class="project-number">02</div><div class="project-image"><img src="assets/img/blood-debt.webp" alt="Deuda de Sangre game artwork" loading="lazy"><span>STRATEGIC CARDS</span></div><div class="project-info"><h3>DEUDA <em>DE SANGRE</em></h3><p data-es="Una burocracia sobrenatural donde el beneficio inmediato deja una deuda que vuelve." data-en="A supernatural bureaucracy where short-term gain leaves a debt that returns.">A supernatural bureaucracy where short-term gain leaves a debt that returns.</p></div><button class="project-trigger" type="button" aria-label="Activate project">â†—</button></article>
-        <article class="project reveal" data-project="grey"><div class="project-number">03</div><div class="project-image"><img src="assets/img/grey-market.webp" alt="Grey Market game artwork" loading="lazy"><span>SIMULATION</span></div><div class="project-info"><h3>GREY <em>MARKET</em></h3><p data-es="InformaciÃ³n, reputaciÃ³n e influencia se cruzan en una economÃ­a clandestina." data-en="Information, reputation and influence collide inside an underground economy.">Information, reputation and influence collide inside an underground economy.</p></div><button class="project-trigger" type="button" aria-label="Activate project">â†—</button></article>
-        <article class="project reveal" data-project="junk"><div class="project-number">04</div><div class="project-image"><img src="assets/img/junkborn.webp" alt="Junkborn game artwork" loading="lazy"><span>ROGUELITE</span></div><div class="project-info"><h3>JUNKBORN <em>â€” ECO DE CHATARRA</em></h3><p data-es="Un roguelite de exploraciÃ³n, sinergias y adaptaciÃ³n construido desde lo descartado." data-en="A roguelite of exploration, synergies and adaptation built from what was discarded.">A roguelite of exploration, synergies and adaptation built from what was discarded.</p></div><button class="project-trigger" type="button" aria-label="Activate project">â†—</button></article>
-        <article class="project reveal" data-project="kia"><div class="project-number">05</div><div class="project-image"><img src="assets/img/case-studies/keep-it-alive/KIA TITLE.jpg" alt="Keep It Alive game cards" loading="lazy"><span>UNITY / C#</span></div><div class="project-info"><h3>KEEP <em>IT ALIVE</em></h3><p data-es="Combate de cartas donde los enemigos interfieren directamente con el mazo del jugador." data-en="Card combat where enemies interfere directly with the player's own deck.">Card combat where enemies interfere directly with the player's own deck.</p></div><button class="project-trigger" type="button" aria-label="Activate project">â†—</button></article>
-        <article class="project reveal" data-project="breath"><div class="project-number">06</div><div class="project-image"><img src="assets/img/last-breath.webp" alt="Ãšltimo Aliento game artwork" loading="lazy"><span>TURN-BASED</span></div><div class="project-info"><h3>ÃšLTIMO <em>ALIENTO</em></h3><p data-es="Supervivencia por turnos: cada movimiento consume el oxÃ­geno que te mantiene vivo." data-en="Turn-based survival: every move consumes the oxygen that keeps you alive.">Turn-based survival: every move consumes the oxygen that keeps you alive.</p></div><button class="project-trigger" type="button" aria-label="Activate project">â†—</button></article>
+
+        <article class="project reveal">
+          <div class="project-number">02</div>
+          <div class="project-image"><img src="assets/img/blood-debt.webp" alt="Deuda de Sangre game artwork" loading="lazy"><span>STRATEGIC CARDS</span></div>
+          <div class="project-info"><h3>DEUDA <em>DE SANGRE</em></h3><p><span data-lang="en">A supernatural bureaucracy where short-term gain leaves a debt that returns.</span><span data-lang="es">Una burocracia sobrenatural donde el beneficio inmediato deja una deuda que vuelve.</span></p></div>
+          <button class="project-trigger" type="button" data-case="blood"><span class="sr-only">Deuda de Sangre — case study</span><span aria-hidden="true">↗</span></button>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-number">03</div>
+          <div class="project-image"><img src="assets/img/junkborn.webp" alt="Junkborn game artwork" loading="lazy"><span>ROGUELITE</span></div>
+          <div class="project-info"><h3>JUNKBORN <em>— ECO DE CHATARRA</em></h3><p><span data-lang="en">A roguelite of exploration, synergies and adaptation built from what was discarded.</span><span data-lang="es">Un roguelite de exploración, sinergias y adaptación construido desde lo descartado.</span></p></div>
+          <button class="project-trigger" type="button" data-case="junk"><span class="sr-only">Junkborn — case study</span><span aria-hidden="true">↗</span></button>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-number">04</div>
+          <div class="project-image"><img src="assets/img/last-breath.webp" alt="Último Aliento game artwork" loading="lazy"><span>TURN-BASED</span></div>
+          <div class="project-info"><h3>ÚLTIMO <em>ALIENTO</em></h3><p><span data-lang="en">Turn-based survival: every move consumes the oxygen that keeps you alive.</span><span data-lang="es">Supervivencia por turnos: cada movimiento consume el oxígeno que te mantiene vivo.</span></p></div>
+          <button class="project-trigger" type="button" data-case="breath"><span class="sr-only">Último Aliento — case study</span><span aria-hidden="true">↗</span></button>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-number">05</div>
+          <div class="project-image"><img src="assets/img/grey-market.webp" alt="Grey Market game artwork" loading="lazy"><span>SIMULATION</span></div>
+          <div class="project-info"><h3>GREY <em>MARKET</em></h3><p><span data-lang="en">Information, reputation and influence collide inside an underground economy.</span><span data-lang="es">Información, reputación e influencia se cruzan en una economía clandestina.</span></p></div>
+          <button class="project-trigger" type="button" data-case="grey"><span class="sr-only">Grey Market — case study</span><span aria-hidden="true">↗</span></button>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-number">06</div>
+          <div class="project-image"><img src="assets/img/shift-protocol.webp" alt="Desfase — Shift Protocol game artwork" loading="lazy"><span>3D PUZZLE</span></div>
+          <div class="project-info"><h3>DESFASE <em>— SHIFT PROTOCOL</em></h3><p><span data-lang="en">A 3D puzzle where understanding an unstable reality is part of solving it.</span><span data-lang="es">Un puzzle 3D donde entender las reglas de una realidad inestable es parte de resolverla.</span></p></div>
+          <button class="project-trigger" type="button" data-case="shift"><span class="sr-only">Desfase — case study</span><span aria-hidden="true">↗</span></button>
+        </article>
       </div>
     </section>
 
     <section class="principles grid-section">
-      <p class="section-index">04.</p><div class="principles-copy"><p class="eyebrow" data-i18n="principlesEyebrow">DESIGN PRINCIPLES</p><h2 data-i18n="principlesTitle">A SYSTEM IS A<br><em>CONVERSATION.</em></h2></div>
-      <ol><li><span>01</span><b data-i18n="p1">Make rules legible enough to be bent.</b></li><li><span>02</span><b data-i18n="p2">Let resources carry emotional weight.</b></li><li><span>03</span><b data-i18n="p3">Make consequences visible, never arbitrary.</b></li><li><span>04</span><b data-i18n="p4">Leave room for players to surprise themselves.</b></li></ol>
+      <p class="section-index">04.</p>
+      <div class="principles-copy">
+        <p class="eyebrow"><span data-lang="en">DESIGN PRINCIPLES</span><span data-lang="es">PRINCIPIOS DE DISEÑO</span></p>
+        <h2><span data-lang="en">A SYSTEM IS A<br><em>CONVERSATION.</em></span><span data-lang="es">UN SISTEMA ES UNA<br><em>CONVERSACIÓN.</em></span></h2>
+      </div>
+      <ol>
+        <li><span>01</span><b><span data-lang="en">Make rules legible enough to be bent.</span><span data-lang="es">Hacer las reglas legibles para poder doblarlas.</span></b></li>
+        <li><span>02</span><b><span data-lang="en">Let resources carry emotional weight.</span><span data-lang="es">Dejar que los recursos tengan peso emocional.</span></b></li>
+        <li><span>03</span><b><span data-lang="en">Make consequences visible, never arbitrary.</span><span data-lang="es">Volver visibles las consecuencias, nunca arbitrarias.</span></b></li>
+        <li><span>04</span><b><span data-lang="en">Leave room for players to surprise themselves.</span><span data-lang="es">Dejar espacio para que el jugador se sorprenda.</span></b></li>
+      </ol>
     </section>
 
-    <section class="contact" id="contact"><p class="section-index">05.</p><div><p class="eyebrow" data-i18n="contactEyebrow">OPEN TO NEW QUESTS</p><h2 data-i18n="contactTitle">LET'S BUILD<br>SOMETHING<br><em>STRANGE.</em></h2></div><div class="contact-links"><a href="assets/cv/Lautaro_Montoya_CV_GameDesign_v2_EN.pdf" target="_blank" data-i18n="cvEn">DOWNLOAD CV â€” EN â†—</a><a href="assets/cv/Lautaro_Montoya_CV_GameDesign_v2_ES.pdf" target="_blank" data-i18n="cvEs">DESCARGAR CV â€” ES â†—</a><p data-i18n="contactNote">Portfolio built to be explored.<br>Contact details are available in the CV.</p></div></section>
-  </main>
-  <footer><span>Â© <span id="year"></span> LAUTARO MONTOYA</span><span>GAME DESIGNER / ARCHIVE_01</span><a href="#top">BACK TO START â†‘</a></footer>
-    <div class="case-modal" id="case-modal" aria-hidden="true">
-  <div class="case-modal-backdrop" data-case-close></div>
-
-  <section class="case-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="case-modal-title">
-
-    <button class="case-modal-close" type="button" data-case-close aria-label="Close case study">Ã—</button>
-
-    <div class="case-modal-topline">
-      <span id="case-modal-number">01</span>
-      <span>CASE STUDY</span>
-    </div>
-
-    <div class="case-modal-hero">
-      <div class="case-modal-gallery"><div class="case-modal-image"><img id="case-modal-image" src="" alt=""></div><div class="case-modal-thumbs" id="case-modal-thumbs"></div></div>
-
-      <div class="case-modal-heading">
-        <p id="case-modal-status">WORK IN PROGRESS</p>
-        <h2 id="case-modal-title"></h2>
-        <p id="case-modal-tagline"></p>
+    <section class="contact" id="contact">
+      <p class="section-index">05.</p>
+      <div>
+        <p class="eyebrow"><span data-lang="en">OPEN TO NEW QUESTS</span><span data-lang="es">ABIERTO A NUEVAS QUESTS</span></p>
+        <h2><span data-lang="en">LET'S BUILD<br>SOMETHING<br><em>STRANGE.</em></span><span data-lang="es">CONSTRUYAMOS<br>ALGO<br><em>EXTRAÑO.</em></span></h2>
       </div>
-    </div>
+      <div class="contact-links">
+        <a href="assets/cv/Lautaro_Montoya_CV_GameDesign_v2_EN.pdf" target="_blank" rel="noopener">DOWNLOAD CV — EN ↗</a>
+        <a href="assets/cv/Lautaro_Montoya_CV_GameDesign_v2_ES.pdf" target="_blank" rel="noopener">DESCARGAR CV — ES ↗</a>
+        <p><span data-lang="en">Portfolio built to be explored.<br>Contact details are available in the CV.</span><span data-lang="es">Un portfolio hecho para explorar.<br>Los datos de contacto están en el CV.</span></p>
+      </div>
+    </section>
+  </main>
 
-    <div class="case-modal-content">
+  <footer class="site-footer">
+    <span>© <span class="year"></span> LAUTARO MONTOYA</span>
+    <span>GAME DESIGNER / ARCHIVE_01</span>
+    <a href="#top"><span data-lang="en">BACK TO START</span><span data-lang="es">VOLVER AL INICIO</span> ↑</a>
+  </footer>
 
-      <section>
-        <p class="case-modal-label">OVERVIEW</p>
-        <p id="case-modal-overview"></p>
-      </section>
-
-      <section>
-        <p class="case-modal-label">MY ROLE</p>
-        <p id="case-modal-role"></p>
-      </section>
-
-      <section>
-        <p class="case-modal-label">DESIGN INTENT</p>
-        <p id="case-modal-intent"></p>
-      </section>
-
-      <section>
-        <p class="case-modal-label">CORE MECHANICS</p>
-        <p id="case-modal-mechanics"></p>
-      </section>
-
-      <section>
-        <p class="case-modal-label">GAMEPLAY LOOP</p>
-        <p id="case-modal-loop"></p>
-      </section>
-
-      <section>
-        <p class="case-modal-label">KEY DESIGN DECISIONS</p>
-        <p id="case-modal-decisions"></p>
-      </section>
-
-      <section>
-        <p class="case-modal-label">DEVELOPMENT STATUS</p>
-        <p id="case-modal-development"></p>
-      </section>
-
-    </div>
-
-    <footer class="case-modal-footer">
-      <span>LAUTARO MONTOYA / GAME DESIGN</span>
-      <button type="button" data-case-close>CLOSE CASE STUDY Ã—</button>
-    </footer>
-
-  </section>
-</div>
-
-  </body>
+  <div class="case-modal" id="case-modal" hidden>
+    <div class="case-modal-backdrop" data-case-close></div>
+    <section class="case-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="case-modal-title" tabindex="-1">
+      <button class="case-modal-close" type="button" data-case-close aria-label="Close">×</button>
+      <div class="case-modal-topline"><span id="case-modal-number">01</span><span data-label="caseStudy">CASE STUDY</span></div>
+      <div class="case-modal-hero">
+        <div class="case-modal-gallery">
+          <div class="case-modal-image">
+            <img id="case-modal-image" src="data:," alt="">
+            <button class="gallery-nav gallery-nav--prev" type="button" data-gallery="-1" aria-label="Previous image">‹</button>
+            <button class="gallery-nav gallery-nav--next" type="button" data-gallery="1" aria-label="Next image">›</button>
+          </div>
+          <div class="case-modal-thumbs" id="case-modal-thumbs"></div>
+        </div>
+        <div class="case-modal-heading">
+          <p id="case-modal-status"></p>
+          <h2 id="case-modal-title"></h2>
+          <p id="case-modal-tagline"></p>
+        </div>
+      </div>
+      <div class="case-modal-content">
+        <section><p class="case-modal-label" data-label="overview">OVERVIEW</p><p id="case-modal-overview"></p></section>
+        <section><p class="case-modal-label" data-label="role">MY ROLE</p><p id="case-modal-role"></p></section>
+        <section><p class="case-modal-label" data-label="intent">DESIGN INTENT</p><p id="case-modal-intent"></p></section>
+        <section><p class="case-modal-label" data-label="mechanics">CORE MECHANICS</p><p id="case-modal-mechanics"></p></section>
+        <section><p class="case-modal-label" data-label="loop">GAMEPLAY LOOP</p><p id="case-modal-loop"></p></section>
+        <section><p class="case-modal-label" data-label="decisions">KEY DESIGN DECISIONS</p><p id="case-modal-decisions"></p></section>
+        <section class="case-modal-wide"><p class="case-modal-label" data-label="development">DEVELOPMENT STATUS</p><p id="case-modal-development"></p></section>
+      </div>
+      <footer class="case-modal-footer">
+        <span>LAUTARO MONTOYA / GAME DESIGN</span>
+        <button type="button" data-case-close data-label="close">CLOSE CASE STUDY ×</button>
+      </footer>
+    </section>
+  </div>
+</body>
 </html>
-
-
